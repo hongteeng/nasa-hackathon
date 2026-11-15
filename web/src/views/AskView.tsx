@@ -16,7 +16,7 @@ import { cannedReading, SUGGESTIONS } from '@api/canned.ts'
 import { buildFacts } from '@api/facts.ts'
 import { blockReason, gradeEvidence } from '@shared/evidence'
 import type { Family, Grade, TestRow } from '@shared/types'
-import { GRADE_MEANING, GradeBadge } from '../components/Grade'
+import { GradeBadge } from '../components/Grade'
 import { RowList } from '../components/RowList'
 import { dataset, investigationByAccession, tests } from '../data'
 import { atm, FAMILY_LABEL, pct, psi } from '../lib/format'
@@ -147,10 +147,6 @@ export function AskView({ params }: { params: URLSearchParams }) {
     <div className="space-y-8">
       <section>
         <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Ask in plain English</h1>
-        <p className="mt-2 max-w-2xl text-dim">
-          A language model reads your question and writes the reply. The numbers come from the test
-          tables; a reply that invents one is discarded.
-        </p>
       </section>
 
       <form
@@ -268,7 +264,6 @@ function Result({ a }: { a: Answer }) {
         <article className={`mt-3 ${noData ? 'hatch border border-dashed border-line-strong p-4 sm:p-5' : ''}`}>
           <div className="flex flex-wrap items-center gap-3">
             <GradeBadge grade={a.grade} size="lg" />
-            <span className="text-sm text-faint">{GRADE_MEANING[a.grade]}</span>
           </div>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed">{a.answer}</p>
 

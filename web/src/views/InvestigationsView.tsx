@@ -46,10 +46,6 @@ export function InvestigationsView({ params }: { params: URLSearchParams }) {
     <div className="space-y-6">
       <section>
         <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Investigations</h1>
-        <p className="mt-2 max-w-2xl text-dim">
-          The {investigations.length} combustion investigations in NASA's PSI archive. Search by
-          name, acronym or fuel.
-        </p>
       </section>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">

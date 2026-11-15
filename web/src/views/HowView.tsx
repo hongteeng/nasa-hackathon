@@ -74,10 +74,6 @@ export function HowView() {
     <div className="space-y-10">
       <section>
         <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">How it works</h1>
-        <p className="mt-2 max-w-2xl text-dim">
-          FlameSafe reports what NASA measured and grades how well that answers your question. It
-          does not predict, and it does not let a language model produce a number.
-        </p>
       </section>
 
       <section>

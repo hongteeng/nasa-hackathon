@@ -25,14 +25,6 @@ export const FAMILY_LABEL: Record<Family, string> = {
   aerosol: 'Smoke aerosol',
 }
 
-/** What each family actually measures, in one line. */
-export const FAMILY_BLURB: Record<Family, string> = {
-  'flame-spread': 'A flame travelling across a solid sample in a flow of gas.',
-  droplet: 'A single fuel droplet burning in still gas.',
-  burner: 'A continuously fed gas flame on a burner.',
-  aerosol: 'Smoke particles from overheated materials. No flame behaviour.',
-}
-
 export const FAMILY_ORDER: Family[] = ['flame-spread', 'droplet', 'burner', 'aerosol']
 
 export const plural = (n: number, word: string) =>

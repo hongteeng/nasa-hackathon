@@ -13,7 +13,7 @@ import { useMemo } from 'react'
 import { HABITAT, O2_BINS } from '@shared/evidence'
 import type { Family } from '@shared/types'
 import { coverage, materials, tests } from '../data'
-import { FAMILY_BLURB, FAMILY_LABEL, FAMILY_ORDER, pct, plural } from '../lib/format'
+import { FAMILY_LABEL, FAMILY_ORDER, pct, plural } from '../lib/format'
 import { href } from '../lib/route'
 
 const binLabel = (i: number) =>
@@ -57,10 +57,6 @@ export function GapMapView() {
           ({pct(HABITAT.o2Min, 0)} or more). The highest any solid has been tested at is{' '}
           {pct(solidMax)}. The {anyInBand.toLocaleString()} tests above that line are all{' '}
           {bandFamilies} tests.
-        </p>
-        <p className="mt-2 max-w-2xl text-dim">
-          Each row is a material, each column an oxygen band. Hatched cells are conditions nobody
-          has tested in microgravity. The orange columns are the planned Moon habitat atmosphere.
         </p>
       </section>
 
@@ -119,7 +115,6 @@ function FamilyGrid({
   return (
     <section>
       <h2 className="text-lg font-semibold">{FAMILY_LABEL[family]}</h2>
-      <p className="text-sm text-faint">{FAMILY_BLURB[family]}</p>
 
       <div className="mt-4 overflow-x-auto">
         <div className="min-w-[46rem]">

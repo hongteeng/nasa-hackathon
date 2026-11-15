@@ -69,10 +69,6 @@ export function TestsView({ params }: { params: URLSearchParams }) {
     <div className="space-y-6">
       <section>
         <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Test data</h1>
-        <p className="mt-2 max-w-2xl text-dim">
-          Every individual test in the archive: {tests.length.toLocaleString()} rows. Oxygen is always
-          shown as a percentage, whatever unit NASA's file used. Select a row to see the original values.
-        </p>
       </section>
 
       <section className="grid grid-cols-2 gap-3 border-y border-line py-5 md:grid-cols-3 lg:grid-cols-6">

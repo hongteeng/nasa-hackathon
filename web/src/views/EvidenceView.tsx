@@ -13,11 +13,11 @@
 import { useMemo } from 'react'
 import { canCompare, DEFAULT_TOLERANCE, gradeEvidence, HABITAT } from '@shared/evidence'
 import type { EvidenceResult, Family, TestRow } from '@shared/types'
-import { GRADE_MEANING, GradeBadge } from '../components/Grade'
+import { GradeBadge } from '../components/Grade'
 import { O2Strip } from '../components/O2Strip'
 import { RowList } from '../components/RowList'
 import { investigationByAccession, materialByName, materials, tests, type MaterialFamily } from '../data'
-import { atm, FAMILY_BLURB, FAMILY_LABEL, FAMILY_ORDER, OUTCOME_LABEL, pct, plural, psi } from '../lib/format'
+import { atm, FAMILY_LABEL, FAMILY_ORDER, OUTCOME_LABEL, pct, plural, psi } from '../lib/format'
 import { href, navigate } from '../lib/route'
 
 const KIND_LABEL = { solid: 'Solids', liquid: 'Liquids', gas: 'Gases' } as const
@@ -53,10 +53,6 @@ export function EvidenceView({ params }: { params: URLSearchParams }) {
         <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           What did NASA actually measure?
         </h1>
-        <p className="mt-2 max-w-2xl text-dim">
-          Choose a material and an oxygen level. Most combinations have never been tested in
-          microgravity.
-        </p>
       </section>
 
       <section className="border-y border-line py-5">
@@ -221,7 +217,6 @@ function FamilyResult({
         <GradeBadge grade={result.grade} size="lg" />
         <p className="text-xl font-medium">{headline(result, material, o2, mf)}</p>
       </div>
-      <p className="mt-1 text-sm text-faint">{GRADE_MEANING[result.grade]}</p>
 
       {result.caveat && <p className="mt-3 max-w-3xl leading-relaxed text-dim">{result.caveat}</p>}
       {pressureMiss && (
@@ -241,7 +236,7 @@ function FamilyResult({
       <p className="mt-2 text-xs text-faint">
         Every tick is an oxygen level where {material} was tested in this family:{' '}
         {plural(mf.withO2.length, 'test')} from {pct(mf.o2Range![0])} to {pct(mf.o2Range![1])}.
-        Taller ticks mean more tests; hover one for the count.
+
         {mf.rows.length > mf.withO2.length &&
           ` A further ${mf.rows.length - mf.withO2.length} have no oxygen level recorded.`}
       </p>
@@ -269,7 +264,6 @@ function FamilyHeading({ family }: { family: Family }) {
   return (
     <div>
       <h2 className="text-base font-semibold">{FAMILY_LABEL[family]} tests</h2>
-      <p className="text-sm text-faint">{FAMILY_BLURB[family]}</p>
     </div>
   )
 }
